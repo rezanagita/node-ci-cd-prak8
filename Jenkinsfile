@@ -6,7 +6,7 @@
  stages {
     stage('Checkout') {
         steps {
-        git branch: 'main', url: 'https://github.com/username/node-ci-cd.git'
+        git branch: 'main', url: 'https://github.com/rezanagita/node-ci-cd-prak8.git'
     }
  }
     stage('Install Dependencies') {
