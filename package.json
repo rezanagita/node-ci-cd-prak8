@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "test:unit": "jest app.test.jest",
+    "test:unit": "jest app.test.js",
     "test:integration": "jest tests/integration"
   },
   "keywords": [],
