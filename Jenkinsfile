@@ -68,7 +68,9 @@ pipeline {
             steps {
                 echo 'Building the application...'
                 bat 'npm run build' // Perintah build aplikasi
-                // Tambahkan perintah build jika diperlukan
+                // Periksa apakah folder build ada
+                bat 'echo Checking the build directory'
+                bat 'dir build' // Debugging: Periksa isi direktori build
             }
             post {
                 success {
@@ -84,9 +86,11 @@ pipeline {
         stage('Deploy to Staging') {
             steps {
                 echo 'Deploying to the staging server...'
-                // Perintah untuk deploy ke server staging
-                bat 'dir ./build' // Debugging: Periksa isi direktori build
-                bat 'scp -r ./build user@staging-server:/var/www/app'
+                // Periksa folder build setelah build
+                bat 'echo Checking the build folder'
+                bat 'dir build' // Debugging: Periksa isi direktori build sebelum deploy
+                // Deploy ke server staging
+                bat 'scp -r build/* user@staging-server:/var/www/app'
                 bat 'ssh user@staging-server "sudo systemctl restart app"'
             }
             post {
