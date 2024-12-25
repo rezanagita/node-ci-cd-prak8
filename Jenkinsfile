@@ -88,10 +88,10 @@ pipeline {
                 echo 'Deploying to the staging server...'
                 // Periksa folder build setelah build
                 bat 'echo Checking the build folder'
-                bat 'dir build' // Debugging: Periksa isi direktori build sebelum deploy
-                // Deploy ke server staging
-                bat 'scp -r build/* user@staging-server:/var/www/app'
-                bat 'ssh user@staging-server "sudo systemctl restart app"'
+                bat 'dir build' 
+                // Deploy ke server staging dengan alamat IP atau hostname yang benar
+                bat 'scp -r build/* user@ 192.168.56.1:/var/www/app'
+                bat 'ssh user@<staging-server-ip> "sudo systemctl restart app"'
             }
             post {
                 success {
