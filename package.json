@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "build": "babel app.js -d dist",
+    "build": "babel app.js -d build",
     "test:unit": "jest app.test.js",
     "test:integration": "jest tests/integration"
   },
